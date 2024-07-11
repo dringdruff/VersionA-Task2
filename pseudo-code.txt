@@ -1,0 +1,47 @@
+DECLARE VARIABLES 
+
+
+    TRY
+       get numberOfRows from textbox
+       parse numberOfRows as integer
+
+
+     IF numberOfRows is not between minimum_rows and maximum_rows
+       display error message
+       clear picturebox
+       clear textbox
+       set focus to textbox
+     ENDIF
+
+       clear pictureBox
+
+       set startX = 10
+       set startY = 10
+
+
+ FOR row FROM 1 TO numberOfRows
+            FOR column FROM 1 TO 10
+                SET x = startX + (column - 1) * (handBagSize + gapSize)
+                SET y = startY + (row - 1) * (handBagSize + gapSize)
+
+                IF column MOD 3 == 0
+                    SET color = Purple
+                ELSE
+                    SET color = Red
+                END IF
+
+                DRAW filled rectangle AT (x, y) WITH size handBagSize, handBagSize AND color color
+                DRAW rectangle outline AT (x, y) WITH size handBagSize, handBagSize AND color Black
+            NEXT column
+        NEXT row
+
+catch
+display error message
+clear picturebox
+clear textbox
+set focus back to textbox
+
+ENDTRY
+
+
+
