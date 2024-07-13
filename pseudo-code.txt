@@ -21,17 +21,17 @@ DECLARE VARIABLES
 
  FOR row FROM 1 TO numberOfRows
             FOR column FROM 1 TO 10
-                SET x = startX + (column - 1) * (handBagSize + gapSize)
-                SET y = startY + (row - 1) * (handBagSize + gapSize)
+                SET x = startX + (column - 1) * (BAG_HEIGHT + gap)
+                SET y = startY + (row - 1) * (BAG_HEIGHT + gap)
 
-                IF column MOD 3 == 0
+                IF column % 3 == 0
                     SET color = Purple
                 ELSE
                     SET color = Red
                 END IF
 
-                DRAW filled rectangle AT (x, y) WITH size handBagSize, handBagSize AND color color
-                DRAW rectangle outline AT (x, y) WITH size handBagSize, handBagSize AND color Black
+                DRAW filled rectangle AT (x, y) WITH size BAG_HEIGHT, BAG_WIDTH AND color color
+                DRAW rectangle outline AT (x, y) WITH size BAG_HEIGHT, BAG_WIDTH AND color Black
             NEXT column
         NEXT row
 

@@ -73,8 +73,8 @@ namespace VersionA_Task2
                 pictureBoxDisplay.Refresh();
                 rowAmountInput.Clear();
                 rowAmountInput.Focus();
-
             }
+            
 
             //Create graphics object
             Graphics g = pictureBoxDisplay.CreateGraphics();
@@ -85,18 +85,34 @@ namespace VersionA_Task2
             int startX = 10;
             int startY = 10;
 
-
-            for (int row = 1; row <= numberOfRows; row++) 
+            //This is the for loop for the rows
+            for (int row = 1; row <= numberOfRows; row++)
             {
-                for (int column = 1; column <= 10;  column++) 
+                //This is the for loop for the columns
+                for (int column = 1; column <= 10; column++)
                 {
-                    int x = startX + (column - 1) * (BAG_HEIGHT * BAG_WIDTH + GAP);
-                    int y = startY + (row - 1) * (BAG_HEIGHT * BAG_WIDTH + GAP);
+                    //This sets the x and y position for the hand bags
+                    int x = startX + (column - 1) * (BAG_HEIGHT + GAP);
+                    int y = startY + (row - 1) * (BAG_HEIGHT + GAP);
+
+                    //This makes every third column a purple bag
+                    Color color = (column % 3 == 0) ? Color.Purple : Color.Red;
+
+                    //This draws the solid rectangle
+                    using (Brush brush = new SolidBrush(color))
+                    {
+                        g.FillRectangle(brush, x, y, BAG_WIDTH, BAG_HEIGHT);
+                    }
+                    //This draws the black outline
+                    using (Pen pen = new Pen(Color.Black))
+                    {
+                        g.DrawRectangle(pen, x, y, BAG_WIDTH, BAG_HEIGHT);
+                    }
+                }
 
 
 
-                        
-
+            }
         }
     }
 }

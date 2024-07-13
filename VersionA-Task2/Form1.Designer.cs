@@ -42,7 +42,7 @@
             this.pictureBoxDisplay.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBoxDisplay.Location = new System.Drawing.Point(12, 12);
             this.pictureBoxDisplay.Name = "pictureBoxDisplay";
-            this.pictureBoxDisplay.Size = new System.Drawing.Size(600, 600);
+            this.pictureBoxDisplay.Size = new System.Drawing.Size(616, 616);
             this.pictureBoxDisplay.TabIndex = 2;
             this.pictureBoxDisplay.TabStop = false;
             // 
